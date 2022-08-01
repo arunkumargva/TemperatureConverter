@@ -1,0 +1,89 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:Temperature_Converter.ViewModels"
+                    xmlns:utils="clr-namespace:Temperature_Converter.Utils"
+                     xmlns:local="clr-namespace:Temperature_Converter.CommonUserControls"
+                     xmlns:converter="clr-namespace:BNP_Test.Converters"
+                    >
+    <DataTemplate x:Key="TemperatureViewModel:Detail">
+        <Grid>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <GroupBox Grid.Column="0" Grid.Row="0">
+                <GroupBox.Header>
+                    <TextBlock Text="Temperature Converter" FontWeight="Bold" FontSize="16"></TextBlock>
+                </GroupBox.Header>
+                <Grid Margin="10,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160"></ColumnDefinition>
+                        <ColumnDefinition Width="25"></ColumnDefinition>
+                        <ColumnDefinition Width="170"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Margin="10"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Orientation="Horizontal">
+                        <RadioButton GroupName="myGroup" Content="°C to °F" FontWeight="Bold" IsChecked="{Binding IsCelsiusChecked,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"></RadioButton>
+                        <RadioButton GroupName="myGroup" Content="°F to °C" Margin="15,0,0,0" FontWeight="Bold"></RadioButton>
+                    </StackPanel>
+                    
+                    <ContentControl Grid.Row="1" Grid.Column="0"   x:Name="ObjectDetailViewContentControl1" VerticalAlignment="Stretch">
+                        <ContentControl.Style>
+                            <Style TargetType="ContentControl">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsCelsiusChecked,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="True">
+                                        <Setter Property="Content" Value="{Binding DataContext.Celsius,
+                                                        RelativeSource={RelativeSource AncestorType=local:ContentPlaceHolder},
+                                                        Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" />
+
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsCelsiusChecked,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="False">
+                                        <Setter Property="Content" Value="{Binding DataContext.Fahrenheit,
+                                                        RelativeSource={RelativeSource AncestorType=local:ContentPlaceHolder},
+                                                        Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ContentControl.Style>
+                        <ContentControl.ContentTemplateSelector>
+                            <utils:ClassDataTemplateSelector ViewTypeId="Detail" />
+                        </ContentControl.ContentTemplateSelector>
+                    </ContentControl>
+                    <ContentControl Grid.Row="1" Grid.Column="2" VerticalAlignment="Stretch">
+                        <ContentControl.ContentTemplateSelector>
+                            <utils:ClassDataTemplateSelector ViewTypeId="Detail" />
+                        </ContentControl.ContentTemplateSelector>
+                        <ContentControl.Style>
+                            <Style TargetType="ContentControl">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsCelsiusChecked,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="False">
+                                        <Setter Property="Content" Value="{Binding DataContext.Celsius,
+                                                        RelativeSource={RelativeSource AncestorType=local:ContentPlaceHolder},
+                                                        Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsCelsiusChecked,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="True">
+                                        <Setter Property="Content" Value="{Binding DataContext.Fahrenheit,
+                                                        RelativeSource={RelativeSource AncestorType=local:ContentPlaceHolder},
+                                                        Mode=OneWay ,UpdateSourceTrigger=PropertyChanged}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ContentControl.Style>
+                    </ContentControl>
+                    <!--<Button Width="80" Height="25" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"  HorizontalAlignment="Center" Content="Convert" FontWeight="Bold"    Command="{Binding CommandConvert}">
+                    </Button>-->
+
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

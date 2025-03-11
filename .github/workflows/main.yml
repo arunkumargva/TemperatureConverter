@@ -24,7 +24,7 @@ jobs:
         run: |
           $currentDir = Get-Location  # Get the current directory
           Write-Host "Current directory: $currentDir"
-          Get-ChildItem ./output  # List the contents of the output directory in PowerShell
+          Get-ChildItem ./Temperature_Converter/output  # List the contents of the output directory in PowerShell
           echo "Build artifacts verification complete"
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4

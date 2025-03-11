@@ -20,7 +20,7 @@ jobs:
         run: .\build.ps1
         working-directory: .
         # Replace YourAppPath with the relative path to your WPF application within the repository
-      - name: Verify build artifacts
+      - name: Verify build artifacts 
         run: |
           $currentDir = Get-Location  # Get the current directory
           Write-Host "Current directory: $currentDir"

@@ -62,8 +62,7 @@ namespace Temperature_Converter.CommonUserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Temperature_Converter;V1.0.0.0;component/commonusercontrols/contentplaceholder.x" +
-                    "aml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Temperature_Converter;component/commonusercontrols/contentplaceholder.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\CommonUserControls\ContentPlaceHolder.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

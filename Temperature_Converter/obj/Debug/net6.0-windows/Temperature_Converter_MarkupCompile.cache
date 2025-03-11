@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Projects\Test_Demo\Temperature_Converter\obj\Debug\net6.0-windows\
+D:\TemperatureConverter\Temperature_Converter\obj\Debug\net6.0-windows\
 Temperature_Converter
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\Projects\Test_Demo\Temperature_Converter\App.xaml
+D:\TemperatureConverter\Temperature_Converter\App.xaml
 5-296799327
 
 18815028257
-197691950561
+197839687885
 CommonUserControls\ContentPlaceHolder.xaml;MainWindow.xaml;Views\DataTemplates\Celsius.xaml;Views\DataTemplates\Fahrenheit.xaml;Views\DataTemplates\TemperatureViewModel.xaml;
 
 False

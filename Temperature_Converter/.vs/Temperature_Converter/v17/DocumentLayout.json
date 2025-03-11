@@ -3,64 +3,12 @@
   "WorkspaceRootPath": "D:\\TemperatureConverter\\Temperature_Converter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\commands\\relaycommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:commands\\relaycommands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\models\\fahrenheit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:models\\fahrenheit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\commands\\commondparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:commands\\commondparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\converters\\commandparameterconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:converters\\commandparameterconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\utils\\classdatatemplateselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:utils\\classdatatemplateselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\viewmodels\\viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:viewmodels\\viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\models\\temperature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:models\\temperature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\models\\celsius.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:models\\celsius.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\converters\\imagepathconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:converters\\imagepathconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\views\\datatemplates\\fahrenheit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:views\\datatemplates\\fahrenheit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\views\\datatemplates\\temperatureviewmodel.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:views\\datatemplates\\temperatureviewmodel.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\temperature_converter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:temperature_converter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\views\\datatemplates\\celsius.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:views\\datatemplates\\celsius.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TemperatureConverter\\Temperature_Converter\\obj\\Debug\\net6.0-windows\\CommonUserControls\\ContentPlaceHolder.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:obj\\Debug\\net6.0-windows\\CommonUserControls\\ContentPlaceHolder.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -75,179 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RelayCommands.cs",
-              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\Commands\\RelayCommands.cs",
-              "RelativeDocumentMoniker": "Commands\\RelayCommands.cs",
-              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\Commands\\RelayCommands.cs",
-              "RelativeToolTip": "Commands\\RelayCommands.cs",
+              "Title": "Temperature_Converter",
+              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\Temperature_Converter.csproj",
+              "RelativeDocumentMoniker": "Temperature_Converter.csproj",
+              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\Temperature_Converter.csproj",
+              "RelativeToolTip": "Temperature_Converter.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:30:00.106Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-11T17:56:56.642Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Fahrenheit.cs",
-              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\Models\\Fahrenheit.cs",
-              "RelativeDocumentMoniker": "Models\\Fahrenheit.cs",
-              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\Models\\Fahrenheit.cs",
-              "RelativeToolTip": "Models\\Fahrenheit.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:30:00.111Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "App.xaml",
-              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\App.xaml",
-              "RelativeToolTip": "App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-11T17:30:00.233Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CommondParameters.cs",
-              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\Commands\\CommondParameters.cs",
-              "RelativeDocumentMoniker": "Commands\\CommondParameters.cs",
-              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\Commands\\CommondParameters.cs",
-              "RelativeToolTip": "Commands\\CommondParameters.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:30:00.255Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CommandParameterConverter.cs",
-              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\Converters\\CommandParameterConverter.cs",
-              "RelativeDocumentMoniker": "Converters\\CommandParameterConverter.cs",
-              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\Converters\\CommandParameterConverter.cs",
-              "RelativeToolTip": "Converters\\CommandParameterConverter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAABTAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:30:00.261Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ClassDataTemplateSelector.cs",
-              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\Utils\\ClassDataTemplateSelector.cs",
-              "RelativeDocumentMoniker": "Utils\\ClassDataTemplateSelector.cs",
-              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\Utils\\ClassDataTemplateSelector.cs",
-              "RelativeToolTip": "Utils\\ClassDataTemplateSelector.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:30:00.264Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ViewModel.cs",
-              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\ViewModels\\ViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\ViewModel.cs",
-              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\ViewModels\\ViewModel.cs",
-              "RelativeToolTip": "ViewModels\\ViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:30:00.267Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Temperature.cs",
-              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\Models\\Temperature.cs",
-              "RelativeDocumentMoniker": "Models\\Temperature.cs",
-              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\Models\\Temperature.cs",
-              "RelativeToolTip": "Models\\Temperature.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAcAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:30:00.269Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Celsius.cs",
-              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\Models\\Celsius.cs",
-              "RelativeDocumentMoniker": "Models\\Celsius.cs",
-              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\Models\\Celsius.cs",
-              "RelativeToolTip": "Models\\Celsius.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:30:00.273Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ImagePathConverter.cs",
-              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\Converters\\ImagePathConverter.cs",
-              "RelativeDocumentMoniker": "Converters\\ImagePathConverter.cs",
-              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\Converters\\ImagePathConverter.cs",
-              "RelativeToolTip": "Converters\\ImagePathConverter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:30:00.275Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Fahrenheit.xaml",
-              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\Views\\DataTemplates\\Fahrenheit.xaml",
-              "RelativeDocumentMoniker": "Views\\DataTemplates\\Fahrenheit.xaml",
-              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\Views\\DataTemplates\\Fahrenheit.xaml",
-              "RelativeToolTip": "Views\\DataTemplates\\Fahrenheit.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-11T17:30:00.278Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "TemperatureViewModel.xaml",
-              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\Views\\DataTemplates\\TemperatureViewModel.xaml",
-              "RelativeDocumentMoniker": "Views\\DataTemplates\\TemperatureViewModel.xaml",
-              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\Views\\DataTemplates\\TemperatureViewModel.xaml",
-              "RelativeToolTip": "Views\\DataTemplates\\TemperatureViewModel.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-11T17:30:00.281Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ContentPlaceHolder.g.cs",
-              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\obj\\Debug\\net6.0-windows\\CommonUserControls\\ContentPlaceHolder.g.cs",
-              "RelativeDocumentMoniker": "obj\\Debug\\net6.0-windows\\CommonUserControls\\ContentPlaceHolder.g.cs",
-              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\obj\\Debug\\net6.0-windows\\CommonUserControls\\ContentPlaceHolder.g.cs",
-              "RelativeToolTip": "obj\\Debug\\net6.0-windows\\CommonUserControls\\ContentPlaceHolder.g.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAcwCEAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:30:00.287Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "Celsius.xaml",
               "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\Views\\DataTemplates\\Celsius.xaml",
               "RelativeDocumentMoniker": "Views\\DataTemplates\\Celsius.xaml",
               "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\Views\\DataTemplates\\Celsius.xaml",
               "RelativeToolTip": "Views\\DataTemplates\\Celsius.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-11T17:30:00.292Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:30:00.295Z"
+              "WhenOpened": "2025-03-11T17:42:36.956Z",
+              "EditorCaption": ""
             }
           ]
         }

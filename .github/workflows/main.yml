@@ -1,0 +1,63 @@
+name: WPF Build
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    branches:
+      - "master"
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create output directory
+        run: mkdir -p ./output
+      - name: Build WPF application
+        run: .\build.ps1
+        working-directory: .
+        # Replace YourAppPath with the relative path to your WPF application within the repository
+      - name: Verify build artifacts
+        run: |
+          $currentDir = Get-Location  # Get the current directory
+          Write-Host "Current directory: $currentDir"
+          Get-ChildItem ./output  # List the contents of the output directory in PowerShell
+          echo "Build artifacts verification complete"
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: ./output
+  test:
+    needs: build
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+          path: ./output
+      - name: Run tests
+        run: dotnet test
+
+  deploy:
+    needs:
+      - build
+      - test
+    runs-on: [self-hosted, windows]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+          path: ${{ github.workspace }}/output
+      - name: Deploy WPF application
+        run: |
+          # Add your deployment commands here

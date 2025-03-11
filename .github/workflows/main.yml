@@ -20,7 +20,7 @@ jobs:
         working-directory: ./
 
       - name: Verify output directory
-        run: ls ./output
+        run: ls ./Temperature_Converter/output
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4

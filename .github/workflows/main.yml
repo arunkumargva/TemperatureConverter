@@ -17,7 +17,7 @@ jobs:
       - name: Create output directory
         run: mkdir -p ./output
       - name: Build WPF application
-        run: pwsh ./TemperatureConverter/Temperature_Converter/build.ps1
+        run: pwsh ./Temperature_Converter/build.ps1
         working-directory: .
         # Replace YourAppPath with the relative path to your WPF application within the repository
       - name: Verify build artifacts 

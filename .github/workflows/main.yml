@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Create output directory
-        run: mkdir -p ./output
+        run: mkdir -p ./Temperature_Converter/output
       - name: Build WPF application
         run: pwsh ./Temperature_Converter/build.ps1
         working-directory: .
@@ -30,7 +30,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: ./output
+          path: ./Temperature_Converter/output
   test:
     needs: build
     runs-on: windows-latest

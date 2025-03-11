@@ -3,12 +3,25 @@
   "WorkspaceRootPath": "D:\\TemperatureConverter\\Temperature_Converter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\temperature_converter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:temperature_converter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{76ADC002-C9C1-480B-A84E-E0F181CD0D19}|..\\Temperature_Converter_UnitTest\\Temperature_Converter_UnitTest.csproj|d:\\temperatureconverter\\temperature_converter_unittest\\viewmodels\\temperatureviewmodeltemperatureviewmodelunittest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\views\\datatemplates\\celsius.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:views\\datatemplates\\celsius.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76ADC002-C9C1-480B-A84E-E0F181CD0D19}|..\\Temperature_Converter_UnitTest\\Temperature_Converter_UnitTest.csproj|d:\\temperatureconverter\\temperature_converter_unittest\\temperature_converter_unittest.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\build.ps1||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:build.ps1||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|d:\\temperatureconverter\\temperature_converter\\temperature_converter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CA8768AB-FEAF-428E-A748-453C358F777B}|Temperature_Converter.csproj|solutionrelative:temperature_converter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,19 +36,69 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TemperatureViewModelTemperatureViewModelUnitTest.cs",
+              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter_UnitTest\\ViewModels\\TemperatureViewModelTemperatureViewModelUnitTest.cs",
+              "RelativeDocumentMoniker": "..\\Temperature_Converter_UnitTest\\ViewModels\\TemperatureViewModelTemperatureViewModelUnitTest.cs",
+              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter_UnitTest\\ViewModels\\TemperatureViewModelTemperatureViewModelUnitTest.cs",
+              "RelativeToolTip": "..\\Temperature_Converter_UnitTest\\ViewModels\\TemperatureViewModelTemperatureViewModelUnitTest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T20:15:09.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Microsoft.PackageDependencyResolution.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ViewState": "AQIAAAABAAAAAAAAAAAAwAwBAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-03-11T20:14:09.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Temperature_Converter_UnitTest",
+              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter_UnitTest\\Temperature_Converter_UnitTest.csproj",
+              "RelativeDocumentMoniker": "..\\Temperature_Converter_UnitTest\\Temperature_Converter_UnitTest.csproj",
+              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter_UnitTest\\Temperature_Converter_UnitTest.csproj",
+              "RelativeToolTip": "..\\Temperature_Converter_UnitTest\\Temperature_Converter_UnitTest.csproj",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAIwBkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-11T18:24:29.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "build.ps1",
+              "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\build.ps1",
+              "RelativeDocumentMoniker": "build.ps1",
+              "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\build.ps1",
+              "RelativeToolTip": "build.ps1",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-11T18:20:33.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Temperature_Converter",
               "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\Temperature_Converter.csproj",
               "RelativeDocumentMoniker": "Temperature_Converter.csproj",
               "ToolTip": "D:\\TemperatureConverter\\Temperature_Converter\\Temperature_Converter.csproj",
               "RelativeToolTip": "Temperature_Converter.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-03-11T17:56:56.642Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Celsius.xaml",
               "DocumentMoniker": "D:\\TemperatureConverter\\Temperature_Converter\\Views\\DataTemplates\\Celsius.xaml",
               "RelativeDocumentMoniker": "Views\\DataTemplates\\Celsius.xaml",

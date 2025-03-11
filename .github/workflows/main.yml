@@ -40,7 +40,7 @@ jobs:
           name: build-artifacts
           path: ./output
       - name: Run tests
-        run: dotnet test
+        run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj
 
   deploy:
     needs:

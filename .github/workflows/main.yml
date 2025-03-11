@@ -3,10 +3,10 @@ name: WPF Build
 on:
   push:
     branches:
-      - "master"
+      - "Temperature-Converter"
   pull_request:
     branches:
-      - "master"
+      - "Temperature-Converter"
 
 jobs:
   build:

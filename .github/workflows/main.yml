@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build WPF application
-        run: Temperature_Converter/build.ps1
+        run: ./Temperature_Converter/build.ps1
         working-directory: ./
 
       - name: Verify output directory

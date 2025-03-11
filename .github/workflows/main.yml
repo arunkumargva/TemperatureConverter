@@ -14,23 +14,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Create output directory
-        run: mkdir -p ./Temperature_Converter/output
+
       - name: Build WPF application
-        run: pwsh ./Temperature_Converter/build.ps1
-        working-directory: .
-        # Replace YourAppPath with the relative path to your WPF application within the repository
-      - name: Verify build artifacts 
-        run: |
-          $currentDir = Get-Location  # Get the current directory
-          Write-Host "Current directory: $currentDir"
-          Get-ChildItem ./Temperature_Converter/output  # List the contents of the output directory in PowerShell
-          echo "Build artifacts verification complete"
+        run: dotnet build "Temperature_Converter.csproj" -c Release -f net8.0-windows -o ./output
+        working-directory: ./
+
+      - name: Verify output directory
+        run: ls ./output
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: ./Temperature_Converter/output
+          path: ./output
+
   test:
     needs: build
     runs-on: windows-latest

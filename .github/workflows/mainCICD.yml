@@ -39,8 +39,8 @@ jobs:
         working-directory: ./
       - name: Run unit tests and generate JUnit XML report
         run: |
-          $test_results_dir = "${{ github.workspace }}/TestResults"
-          New-Item -ItemType Directory -Name $test_results_dir -Force | Out-Null
+          $test_results_dir = Join-Path -Path "${{ github.workspace }}" -ChildPath "TestResults"
+           New-Item -ItemType Directory -Path $test_results_dir -Force | Out-Null
           echo "::set-env name=JUNIT_XML_PATH::$test_results_dir\\junit-unit-test-results.xml"
           dotnet test ./Temperature_Converter/Temperature_Converter.csproj --test-adapter-path:. --logger:"junit;LogFilePath=${{ env.JUNIT_XML_PATH }}"
         working-directory: ./

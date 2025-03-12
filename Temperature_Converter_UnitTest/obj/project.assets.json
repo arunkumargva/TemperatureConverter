@@ -8,6 +8,12 @@
           "build/netstandard2.0/coverlet.collector.targets": {}
         }
       },
+      "JunitXml.TestLogger/6.0.0": {
+        "type": "package",
+        "build": {
+          "build/netstandard2.1/JUnitXml.TestLogger.props": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.22.0": {
         "type": "package",
         "dependencies": {
@@ -711,6 +717,12 @@
           "build/netcoreapp2.1/_._": {}
         }
       },
+      "NunitXml.TestLogger/6.0.0": {
+        "type": "package",
+        "build": {
+          "build/netstandard1.0/NUnitXml.TestLogger.props": {}
+        }
+      },
       "System.Diagnostics.DiagnosticSource/5.0.0": {
         "type": "package",
         "compile": {
@@ -881,6 +893,23 @@
         "coverlet-icon.png",
         "coverlet.collector.6.0.4.nupkg.sha512",
         "coverlet.collector.nuspec"
+      ]
+    },
+    "JunitXml.TestLogger/6.0.0": {
+      "sha512": "5U8om+85FauauJ9IuPuqExlJLq1BvQE04LWndKDaQIUgyZc+Gcn9nfZ5iLMAsAoybUk/fBwzmgFk0f4r023kHQ==",
+      "type": "package",
+      "path": "junitxml.testlogger/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/_common/Microsoft.VisualStudio.TestPlatform.Extension.JUnit.Xml.TestLogger.dll",
+        "build/_common/Spekt.TestLogger.dll",
+        "build/netstandard2.1/JUnitXml.TestLogger.props",
+        "docs/CHANGELOG.md",
+        "docs/README.md",
+        "junitxml.testlogger.6.0.0.nupkg.sha512",
+        "junitxml.testlogger.nuspec",
+        "packageIcon.png"
       ]
     },
     "Microsoft.ApplicationInsights/2.22.0": {
@@ -2124,6 +2153,24 @@
         "nunit3testadapter.nuspec"
       ]
     },
+    "NunitXml.TestLogger/6.0.0": {
+      "sha512": "jmsz71tisZJ4iof1p6ykCZRf5hOdXwEFAH6wRfaCgoRRsmF367sZuKwltn7BlnAtZFkjRLQJrap7V7fWMzcBnQ==",
+      "type": "package",
+      "path": "nunitxml.testlogger/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/_common/Microsoft.VisualStudio.TestPlatform.Extension.NUnit.Xml.TestLogger.dll",
+        "build/_common/Spekt.TestLogger.dll",
+        "build/net45/NUnitXml.TestLogger.props",
+        "build/netstandard1.0/NUnitXml.TestLogger.props",
+        "docs/CHANGELOG.md",
+        "docs/README.md",
+        "nunitxml.testlogger.6.0.0.nupkg.sha512",
+        "nunitxml.testlogger.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "System.Diagnostics.DiagnosticSource/5.0.0": {
       "sha512": "tCQTzPsGZh/A9LhhA6zrqCRV4hOHsK90/G7q3Khxmn6tnB1PuNU0cRaKANP2AWcF9bn0zsuOoZOSrHuJk6oNBA==",
       "type": "package",
@@ -2303,9 +2350,11 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "JunitXml.TestLogger >= 6.0.0",
       "MSTest.TestAdapter >= 3.8.2",
       "MSTest.TestFramework >= 3.8.2",
       "Microsoft.NET.Test.Sdk >= 17.13.0",
+      "NunitXml.TestLogger >= 6.0.0",
       "Temperature_Converter >= 1.0.0",
       "coverlet.collector >= 6.0.4"
     ]
@@ -2364,6 +2413,10 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
+          "JunitXml.TestLogger": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          },
           "MSTest.TestAdapter": {
             "target": "Package",
             "version": "[3.8.2, )"
@@ -2375,6 +2428,10 @@
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[17.13.0, )"
+          },
+          "NunitXml.TestLogger": {
+            "target": "Package",
+            "version": "[6.0.0, )"
           },
           "coverlet.collector": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

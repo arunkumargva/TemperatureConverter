@@ -136,6 +136,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "JunitXml.TestLogger": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "MSTest.TestAdapter": {
               "target": "Package",
               "version": "[3.8.2, )"
@@ -147,6 +151,10 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.13.0, )"
+            },
+            "NunitXml.TestLogger": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

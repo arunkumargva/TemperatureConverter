@@ -23,26 +23,26 @@ jobs:
         with:
           name: build-artifacts
           path: ./Temperature_Converter/output
-
+          
+          
   test:
-    needs: build
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: build-artifacts
-          path: ./build-artifacts
-      - name: Restore packages
-        run: dotnet restore ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj
-        working-directory: ./Temperature_Converter_UnitTest
-      - name: Run unit tests and generate JUnit XML report
-        run: dotnet test --logger "junit;LogFilePath=TestResults\junit-unit-test-results.xml"
-        working-directory: ./Temperature_Converter_UnitTest
-        shell: pwsh
-      - name: Upload unit test results
-        uses: actions/upload-artifact@v4
-        with:
-          name: unit-test-results
-          path: ./Temperature_Converter_UnitTest/TestResults/junit-unit-test-results.xml
+   needs: build
+   runs-on: windows-latest
+   steps:
+    - uses: actions/checkout@v2
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-artifacts
+        path: ./build-artifacts
+    - name: Restore packages
+      run: dotnet restore ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj
+    - name: Run unit tests and generate JUnit XML report
+      run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj --logger "junit;LogFilePath=TestResults\junit-unit-test-results.xml"
+      working-directory: ./Temperature_Converter_UnitTest
+      shell: pwsh
+    - name: Upload unit test results
+      uses: actions/upload-artifact@v4
+      with:
+        name: unit-test-results
+        path: ./Temperature_Converter_UnitTest/TestResults/junit-unit-test-results.xml

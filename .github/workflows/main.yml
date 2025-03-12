@@ -20,18 +20,17 @@ jobs:
         working-directory: ./
 
       - name: Verify output directory
-        run: ls ./output
+        run: ls ./Temperature_Converter/output
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: ./output
+          path: ./Temperature_Converter/output
 
   test:
     needs: build
     runs-on: windows-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Download build artifacts
@@ -39,9 +38,18 @@ jobs:
         with:
           name: build-artifacts
           path: ./output
-      - name: Run tests
-        run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj
-
+      - name: Restore packages
+        run: dotnet restore ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj
+        working-directory: ./
+      - name: Run E2E tests
+        run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj --logger:"junit;LogFilePath=E2ETestResults.xml" --filter TestName~TestMethod
+        working-directory: ./
+      - name: Upload E2E test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-test-results
+          path: ./E2ETestResults.xml
+   
   deploy:
     needs:
       - build

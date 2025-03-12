@@ -23,45 +23,49 @@ jobs:
         with:
           name: build-artifacts
           path: ./Temperature_Converter/output
-
   test:
     needs: build
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: build-artifacts
-          path: ./build-artifacts
-      - name: Create TestResults directory (if not exist)
-        run: |
-          New-Item -ItemType Directory -Name TestResults -Force
-        shell: pwsh
-        working-directory: ./
-      - name: Restore packages
-        run: dotnet restore ./Temperature_Converter/Temperature_Converter.csproj
-        working-directory: ./
-      - name: Run unit tests and generate JUnit XML report
-        run: dotnet test ./Temperature_Converter/Temperature_Converter.csproj --test-adapter-path:. --logger:"junit;LogFilePath=TestResults/junit-unit-test-results.xml"
-        working-directory: ./
-      - name: List TestResults directory
-        run: ls ./TestResults
-        working-directory: ./
-      - name: List working directory
-        run: ls ./
-        working-directory: ./
-      - name: List Temperature_Converter directory
-        run: ls ./Temperature_Converter
-        working-directory: ./
-      - name: List current directory
-        run: ls
-      - name: Upload unit test results
-        uses: actions/upload-artifact@v4
-        with:
-          name: unit-test-results
-          if-no-files-found: warn
-          compression-level: 6
-          overwrite: false
-          include-hidden-files: false
-          path: TestResults/junit-unit-test-results.xml
+    - uses: actions/checkout@v2
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-artifacts
+        path: ./build-artifacts
+    - name: Create TestResults directory (if not exist)
+      run: |
+        New-Item -ItemType Directory -Name TestResults -Force
+      shell: pwsh
+      working-directory: ./
+    - name: Restore packages
+      run: dotnet restore ./Temperature_Converter/Temperature_Converter.csproj
+      working-directory: ./
+    - name: Run unit tests and generate JUnit XML report
+      run: dotnet test ./Temperature_Converter/Temperature_Converter.csproj --test-adapter-path:. --logger:"junit;LogFilePath=TestResults/junit-unit-test-results.xml"
+      working-directory: ./
+      env:
+        DOTNET_CLI_VERBOSITY: diagnostic
+    - name: List TestResults directory
+      run: ls ./TestResults
+      working-directory: ./
+    - name: List working directory
+      run: ls ./
+      working-directory: ./
+    - name: List Temperature_Converter directory
+      run: ls ./Temperature_Converter
+      working-directory: ./
+    - name: List current directory
+      run: ls
+    - name: Upload unit test results
+      uses: actions/upload-artifact@v4
+      with:
+        name: unit-test-results
+        if-no-files-found: warn
+        compression-level: 6
+        overwrite: false
+        include-hidden-files: false
+        path: TestResults/junit-unit-test-results.xml
+
+
+

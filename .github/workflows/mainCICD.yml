@@ -11,36 +11,33 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+
     steps:
       - uses: actions/checkout@v2
+
       - name: Build WPF application
         run: ./Temperature_Converter/build.ps1
         working-directory: ./
+
       - name: Verify output directory
         run: ls ./Temperature_Converter/output
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
           path: ./Temperature_Converter/output
-          
-          
+
   test:
-   needs: build
-   runs-on: windows-latest
-   steps:
-    - uses: actions/checkout@v2
-    - name: Download build artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: build-artifacts
-        path: ./build-artifacts
-    - name: Run unit tests and generate JUnit XML report
-      run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj
-      working-directory: ./Temperature_Converter/Temperature_Converter_UnitTest
-      shell: pwsh
-    - name: Upload unit test results
-      uses: actions/upload-artifact@v4
-      with:
-        name: unit-test-results
-        path: ./Temperature_Converter_UnitTest/TestResults/junit-unit-test-results.xml
+    needs: build
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+          path: ./output
+      - name: Run tests
+        run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj

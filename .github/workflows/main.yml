@@ -54,7 +54,7 @@ jobs:
           compression-level: 6
           overwrite: false
           include-hidden-files: false
-          path: ${{ env.TEST_RESULT_PATH }}
+          path: ./TestResults/junit-unit-test-results.xml
    
   deploy:
     needs:

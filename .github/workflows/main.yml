@@ -42,7 +42,7 @@ jobs:
         run: dotnet restore ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj
         working-directory: ./
       - name: Run E2E tests
-        run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj --test-adapter-path:. --logger:"junit;LogFilePath=E2ETestResults.xml" --filter TestName~TestMethod
+        run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj --logger:"junit;LogFilePath=E2ETestResults.xml" --filter TestName~TestMethod
         working-directory: ./
       - name: Upload E2E test results
         uses: actions/upload-artifact@v4

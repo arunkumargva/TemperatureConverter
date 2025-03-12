@@ -39,16 +39,18 @@ jobs:
           name: build-artifacts
           path: ./output
       - name: Restore packages
-        run: dotnet restore ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj
+        run: dotnet restore ./Temperature_Converter/Temperature_Converter.csproj
         working-directory: ./
-      - name: Run E2E tests
-        run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj --logger:"junit;LogFilePath=E2ETestResults.xml" --filter TestName~TestMethod
+      - name: Run unit tests and generate JUnit XML report
+        run: dotnet test ./Temperature_Converter/Temperature_Converter.csproj -r ${{ env.TEST_RESULT_PATH }} -l junit
         working-directory: ./
-      - name: Upload E2E test results
+        env:
+          TEST_RESULT_PATH: ./TestResults/junit-unit-test-results.xml
+      - name: Upload unit test results
         uses: actions/upload-artifact@v4
         with:
-          name: e2e-test-results
-          path: ./E2ETestResults.xml
+          name: unit-test-results
+          path: ${{ env.TEST_RESULT_PATH }}
    
   deploy:
     needs:

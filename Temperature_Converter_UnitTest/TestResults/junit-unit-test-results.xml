@@ -1,0 +1,21 @@
+<testsuites>
+  <testsuite name="Temperature_Converter_UnitTest.dll" tests="8" skipped="0" failures="0" errors="0" time="0.3189263999999999" timestamp="2025-03-12T19:09:31" hostname="RITHVIKARUN" id="0" package="Temperature_Converter_UnitTest.dll">
+    <properties />
+    <testcase classname="Temperature_Converter.ViewModels.Temperature_Converter_UnitTest.TemperatureViewModelTemperatureViewModelUnitTest" name="Can_Convert_From_Fahrenheit_To_Celsius" time="0.3182211" />
+    <testcase classname="Temperature_Converter.ViewModels.Temperature_Converter_UnitTest.TemperatureViewModelTemperatureViewModelUnitTest" name="Can_Convert_From_Celsius_To_Fahrenheit" time="0.0002272" />
+    <testcase classname="Temperature_Converter.Extensions.Temperature_Converter_UnitTest.CelsiusExtensionTemperatureViewModelUnitTest" name="ConvertToFahrenheitTest" time="0.0000979" />
+    <testcase classname="Temperature_Converter.Extensions.Temperature_Converter_UnitTest.CelsiusExtensionTemperatureViewModelUnitTest" name="ConvertToFahrenheitTest_Zero" time="0.0001158" />
+    <testcase classname="Temperature_Converter.Extensions.Temperature_Converter_UnitTest.CelsiusExtensionTemperatureViewModelUnitTest" name="ConvertToFahrenheitTest_Negative" time="0.0000456" />
+    <testcase classname="Temperature_Converter.Extensions.Temperature_Converter_UnitTest.FahrenheitExtensionTemperatureViewModelUnitTest" name="ConvertToCelsiusTest" time="0.0000791" />
+    <testcase classname="Temperature_Converter.Extensions.Temperature_Converter_UnitTest.FahrenheitExtensionTemperatureViewModelUnitTest" name="ConvertToCelsiusTest_Zero" time="0.0001054" />
+    <testcase classname="Temperature_Converter.Extensions.Temperature_Converter_UnitTest.FahrenheitExtensionTemperatureViewModelUnitTest" name="ConvertToCelsiusTest_Negative" time="0.0000343" />
+    <system-out>
+Test Framework Informational Messages:
+NUnit Adapter 4.2.0.0: Test execution started
+Running all tests in D:\TemperatureConverter\Temperature_Converter_UnitTest\bin\Debug\net8.0-windows\Temperature_Converter_UnitTest.dll
+   NUnit3TestExecutor discovered 0 of 0 NUnit test cases using Current Discovery mode, Explicit run
+NUnit Adapter 4.2.0.0: Test execution complete
+</system-out>
+    <system-err></system-err>
+  </testsuite>
+</testsuites>

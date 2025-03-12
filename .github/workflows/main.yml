@@ -38,6 +38,9 @@ jobs:
         with:
           name: build-artifacts
           path: ./output
+      - name: Restore packages
+        run: dotnet restore ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj
+        working-directory: ./
       - name: Run E2E tests
         run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj --test-adapter-path:. --logger:"junit;LogFilePath=E2ETestResults.xml" --filter TestName~TestMethod
         working-directory: ./

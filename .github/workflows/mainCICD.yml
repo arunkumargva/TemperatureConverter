@@ -36,7 +36,7 @@ jobs:
         name: build-artifacts
         path: ./build-artifacts
     - name: Run unit tests and generate JUnit XML report
-      run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj --logger "junit;LogFilePath=TestResults\junit-unit-test-results.xml"
+      run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj
       working-directory: ./Temperature_Converter/Temperature_Converter_UnitTest
       shell: pwsh
     - name: Upload unit test results

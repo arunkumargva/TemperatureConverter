@@ -29,23 +29,29 @@ jobs:
           path: ./Temperature_Converter/output
 
   test:
-    needs: build
-    runs-on: windows-latest
+   needs: build
+   runs-on: windows-latest
 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: build-artifacts
-          path: ./Temperature_Converter/output
-      - name: Run tests
-        run: dotnet test ./TemperatureConverter/Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj --logger "junit;LogFilePath=TemperatureConverter/Temperature_Converter_UnitTest/TestResults/junit-unit-test-results.xml"
-      - name: List TestResults directory
-        run: ls ./TestResults
-      - name: Upload unit test results
-        uses: actions/upload-artifact@v4
-        with:
-          name: unit-test-results
-          path: ./TestResults/junit-unit-test-results.xml
-          if-no-files-found: warn
+   steps:
+    - uses: actions/checkout@v2
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-artifacts
+        path: ./Temperature_Converter/output
+
+    - name: Ensure TestResults directory exists
+      run: mkdir -p TemperatureConverter/Temperature_Converter_UnitTest/TestResults
+
+    - name: Run tests
+      run: dotnet test ./TemperatureConverter/Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj --logger "junit;LogFilePath=TemperatureConverter/Temperature_Converter_UnitTest/TestResults/junit-unit-test-results.xml"
+
+    - name: List TestResults directory
+      run: ls TemperatureConverter/Temperature_Converter_UnitTest/TestResults
+
+    - name: Upload unit test results
+      uses: actions/upload-artifact@v4
+      with:
+        name: unit-test-results
+        path: TemperatureConverter/Temperature_Converter_UnitTest/TestResults/junit-unit-test-results.xml
+        if-no-files-found: warn

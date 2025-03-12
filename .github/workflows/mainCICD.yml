@@ -40,4 +40,4 @@ jobs:
           name: build-artifacts
           path: ./output
       - name: Run tests
-        run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj
+        run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj --logger "junit;LogFilePath=TestResults\junit-unit-test-results.xml"

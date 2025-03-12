@@ -42,7 +42,10 @@ jobs:
       run: dotnet restore ./Temperature_Converter/Temperature_Converter.csproj
       working-directory: ./
     - name: Run unit tests and generate JUnit XML report
-      run: dotnet test ./Temperature_Converter/Temperature_Converter.csproj --test-adapter-path:. --logger:"junit;LogFilePath=$(build.artifactstagingdirectory)\\TestResults\\junit-unit-test-results.xml"
+      run: |
+        $test_results_dir = "${{ github.workspace }}/TestResults"
+        New-Item -ItemType Directory -Name $test_results_dir -Force | Out-Null
+        dotnet test ./Temperature_Converter/Temperature_Converter.csproj --test-adapter-path:. --logger:"junit;LogFilePath=${{ test_results_dir }}\\junit-unit-test-results.xml"
       working-directory: ./
     - name: List TestResults directory
       run: ls ./TestResults

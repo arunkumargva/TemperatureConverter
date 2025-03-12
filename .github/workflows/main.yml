@@ -31,17 +31,22 @@ jobs:
   test:
     needs: build
     runs-on: windows-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
           name: build-artifacts
-          path: ./output123
-      - name: Run tests
-        run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj
-
+          path: ./output
+      - name: Run E2E tests
+        run: dotnet test ./Temperature_Converter_UnitTest/Temperature_Converter_UnitTest.csproj --test-adapter-path:. --logger:"junit;LogFilePath=E2ETestResults.xml" --filter TestName~TestMethod
+        working-directory: ./
+      - name: Upload E2E test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-test-results
+          path: ./E2ETestResults.xml
+   
   deploy:
     needs:
       - build

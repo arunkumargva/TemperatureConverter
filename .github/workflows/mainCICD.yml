@@ -40,8 +40,6 @@ jobs:
         name: build-artifacts
         path: ./Temperature_Converter/output
 
-    - name: Ensure TestResults directory exists
-      run: mkdir -p ./Temperature_Converter_UnitTest/TestResults
 
     - name: Run tests
       run: ./Temperature_Converter_UnitTest/UnitTest.ps1

@@ -42,7 +42,7 @@ jobs:
         run: dotnet restore ./Temperature_Converter/Temperature_Converter.csproj
         working-directory: ./
       - name: Run unit tests and generate JUnit XML report
-        run: dotnet test ./Temperature_Converter/Temperature_Converter.csproj -r ${{ env.TEST_RESULT_PATH }} -l junit
+        run: dotnet test ./Temperature_Converter/Temperature_Converter.csproj --test-adapter-path:. --logger:"junit;LogFilePath=${{ env.TEST_RESULT_PATH }}"
         working-directory: ./
         env:
           TEST_RESULT_PATH: ./TestResults/junit-unit-test-results.xml

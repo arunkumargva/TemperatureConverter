@@ -1,4 +1,4 @@
-name: Temperature Converter CI/CD
+name: Temperature Converter CI/CD 
 
 on:
   push:

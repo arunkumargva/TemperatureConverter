@@ -29,7 +29,7 @@ jobs:
           path: ./Temperature_Converter/output
 
       - name: Send Slack notification (build job)
-        uses: slackapi/slack-github-action@v2
+        uses: slack/github-action@v1
         with:
           auth: false
           channel-id: "C08HFM6VALE"

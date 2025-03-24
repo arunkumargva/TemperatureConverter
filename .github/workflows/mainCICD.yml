@@ -28,6 +28,13 @@ jobs:
           name: build-artifacts
           path: ./Temperature_Converter/output
 
+      - name: Send Slack notification (build job)
+        uses: slackapi/slack-github-action@v2
+        with:
+          auth: false
+          channel-id: "C08HFM6VALE"
+          message: "Build job ${{ job.status }} - build ${{ env.BUILD_NUMBER }}"
+
   test:
    needs: build
    runs-on: windows-latest

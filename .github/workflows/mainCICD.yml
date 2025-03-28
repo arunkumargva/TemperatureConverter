@@ -28,12 +28,13 @@ jobs:
           name: build-artifacts
           path: ./Temperature_Converter/output
 
-      - name: Send Slack notification (build job)
-        uses: slackapi/slack-github-action@v2
+      
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2.1.0
         with:
-          auth: false
-          channel-id: "C08HFM6VALE"
-          message: "Build job ${{ job.status }} - build ${{ env.BUILD_NUMBER }}"
+          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          message: 'Hello, Slack!'
+          channel: 'C08HFM6VALE'
 
   test:
    needs: build

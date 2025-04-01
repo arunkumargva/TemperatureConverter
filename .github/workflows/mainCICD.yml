@@ -31,12 +31,15 @@ jobs:
      
       - name: Send Slack Notification
         run: |
-           try {
-           $payload = '{"text": "✅ Build completed for branch: $env:GITHUB_REF \n Commit: $env:GITHUB_SHA"}'
-           Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
-           } catch {
-           Write-Output "Slack notification failed: $_"
-           }
+          try {
+              $branch = $env:GITHUB_REF
+              $commit = $env:GITHUB_SHA
+              $payload = '{"text": "✅ Build completed for branch: ' + $branch + ' \n Commit: ' + $commit + '"}'
+              Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
+              } catch {
+              $errorPayload = '{"text": "❌ Slack notification failed: ' + $_ + '"}'
+              Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $errorPayload -ContentType 'application/json'
+              }
         shell: pwsh
       
   test:

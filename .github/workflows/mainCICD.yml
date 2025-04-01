@@ -28,12 +28,13 @@ jobs:
           name: build-artifacts
           path: ./Temperature_Converter/output
 
-      - name: Send Slack notification
-        uses: rtCamp/action-slack-notify@v2.1.0
-        with:
-          channel-id: "C08HFM6VALE"
-          webhook-url: "${{ secrets.SLACK_WEBHOOK_URL }}"
-          message: "WPF Application deployment completed successfully! "
+      
+
+      - name: Send Slack Notification
+        run: |
+              $payload = '{"text": "Hello, Slack!"}'
+                 Invoke-RestMethod -Uri ${{ secrets.SLACK_WEBHOOK_URL }} -Method Post -Body $payload -ContentType 'application/json'
+        shell: pwsh
       
   test:
    needs: build

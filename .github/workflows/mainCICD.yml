@@ -31,66 +31,88 @@ jobs:
       - name: Notify Success
         if: success()
         run: |
-        $payload = '{"text": "✅ Build succeeded!"}'
-         Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
+          $branch = $env:GITHUB_REF -replace 'refs/heads/', ''
+          $commit = $env:GITHUB_SHA
+          $payload = '{"text": "✅ Build succeeded for branch: ' + $branch + ' \n Commit: ' + $commit + '"}'
+          Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
+        shell: pwsh
 
       - name: Notify Failure
         if: failure()
         run: |
-        $payload = '{"text": "❌ Build failed!"}'
-        Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
-     
-      - name: Send Slack Notification
-        run: |
-          try {
-              $branch = $env:GITHUB_REF
-              $commit = $env:GITHUB_SHA
-              $payload = '{"text": "✅ Build completed for branch: ' + $branch + ' \n Commit: ' + $commit + '"}'
-              Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
-              } catch {
-              $errorPayload = '{"text": "❌ Slack notification failed: ' + $_ + '"}'
-              Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $errorPayload -ContentType 'application/json'
-              }
+          $payload = '{"text": "❌ Build failed! Check logs for details."}'
+          Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
         shell: pwsh
-      
+
   test:
-   needs: build
-   runs-on: windows-latest
+    needs: build
+    runs-on: windows-latest
 
-   steps:
-    - uses: actions/checkout@v2
-    - name: Download build artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: build-artifacts
-        path: ./Temperature_Converter/output
+    steps:
+      - uses: actions/checkout@v2
 
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+          path: ./Temperature_Converter/output
 
-    - name: Run tests
-      run: ./Temperature_Converter_UnitTest/UnitTest.ps1
+      - name: Run tests
+        run: ./Temperature_Converter_UnitTest/UnitTest.ps1
 
-    - name: List TestResults directory
-      run: ls ./Temperature_Converter_UnitTest/TestResults
+      - name: List TestResults directory
+        run: ls ./Temperature_Converter_UnitTest/TestResults
 
-    - name: Upload unit test results 
-      uses: actions/upload-artifact@v4
-      with:
-        name: unit-test-results
-        path: ./Temperature_Converter_UnitTest/TestResults/junit-unit-test-results.xml
-        if-no-files-found: warn
+      - name: Upload unit test results 
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-results
+          path: ./Temperature_Converter_UnitTest/TestResults/junit-unit-test-results.xml
+          if-no-files-found: warn
+
+      - name: Notify Test Success
+        if: success()
+        run: |
+          $payload = '{"text": "✅ Tests passed successfully!"}'
+          Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
+        shell: pwsh
+
+      - name: Notify Test Failure
+        if: failure()
+        run: |
+          $payload = '{"text": "❌ Tests failed! Check logs for details."}'
+          Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
+        shell: pwsh
+
   deploy:
-    needs:
+    needs: 
       - build
-      - test 
+      - test
     runs-on: [self-hosted, windows]
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
           name: build-artifacts
           path: ${{ github.workspace }}/output
+
       - name: Deploy WPF application
         run: |
           # Add your deployment commands here
+
+      - name: Notify Deployment Success
+        if: success()
+        run: |
+          $payload = '{"text": "🚀 Deployment completed successfully on the self-hosted Windows runner!"}'
+          Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
+        shell: pwsh
+
+      - name: Notify Deployment Failure
+        if: failure()
+        run: |
+          $payload = '{"text": "❌ Deployment failed! Check logs for details."}'
+          Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
+        shell: pwsh

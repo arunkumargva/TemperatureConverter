@@ -23,7 +23,7 @@ jobs:
         run: ls ./Temperature_Converter/output
 
       - name: Upload build artifacts 
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
           path: ./Temperature_Converter/output
@@ -33,7 +33,7 @@ jobs:
         run: |
            try {
            $payload = '{"text": "Build completed successfully!"}'
-           Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
+           Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK1 }}" -Method Post -Body $payload -ContentType 'application/json'
            } catch {
            Write-Output "Slack notification failed: $_"
            }

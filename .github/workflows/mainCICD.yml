@@ -29,7 +29,7 @@ jobs:
           path: ./Temperature_Converter/output
 
       - name: Send Slack notification
-        uses: slack/github-action@v2
+        uses: rtCamp/action-slack-notify@v2.1.0
         with:
           channel-id: "C08HFM6VALE"
           webhook-url: "${{ secrets.SLACK_WEBHOOK_URL }}"

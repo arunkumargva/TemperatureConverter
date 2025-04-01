@@ -28,14 +28,13 @@ jobs:
           name: build-artifacts
           path: ./Temperature_Converter/output
 
-      
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2.1.0
+      - name: Send Slack notification
+        uses: slack/github-action@v2
         with:
-          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          message: 'Hello, Slack!'
-          channel: 'C08HFM6VALE'
-
+          channel-id: "C08HFM6VALE"
+          webhook-url: "${{ secrets.SLACK_WEBHOOK_URL }}"
+          message: "WPF Application deployment completed successfully! "
+      
   test:
    needs: build
    runs-on: windows-latest

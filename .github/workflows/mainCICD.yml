@@ -33,7 +33,7 @@ jobs:
       - name: Send Slack Notification
         run: |
               $payload = '{"text": "Hello, Slack!"}'
-                 Invoke-RestMethod -Uri ${{ secrets.SLACK_WEBHOOK_URL }} -Method Post -Body $payload -ContentType 'application/json'
+               Invoke-RestMethod -Uri "${{ secrets.SLACK_WEBHOOK_URL }}" -Method Post -Body $payload -ContentType 'application/json'
         shell: pwsh
       
   test:

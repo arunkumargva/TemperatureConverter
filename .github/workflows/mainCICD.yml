@@ -27,7 +27,18 @@ jobs:
         with:
           name: build-artifacts
           path: ./Temperature_Converter/output
+          
+      - name: Notify Success
+        if: success()
+        run: |
+        $payload = '{"text": "✅ Build succeeded!"}'
+         Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
 
+      - name: Notify Failure
+        if: failure()
+        run: |
+        $payload = '{"text": "❌ Build failed!"}'
+        Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
      
       - name: Send Slack Notification
         run: |

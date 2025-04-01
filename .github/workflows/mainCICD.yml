@@ -32,7 +32,7 @@ jobs:
       - name: Send Slack Notification
         run: |
            try {
-           $payload = '{"text": "Build completed successfully!"}'
+           $payload = '{"text": "✅ Build completed for branch: $env:GITHUB_REF \n Commit: $env:GITHUB_SHA"}'
            Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
            } catch {
            Write-Output "Slack notification failed: $_"

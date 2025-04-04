@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Capture start time
-        run: echo "::set-output name=START_TIME::$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+        run: echo "START_TIME=$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" | Out-File -Append -Encoding utf8 $env:GITHUB_ENV
         shell: pwsh
         
       - name: Build WPF application
@@ -33,13 +33,13 @@ jobs:
           path: ./Temperature_Converter/output
           
       - name: Capture end time
-        run: echo "::set-output name=END_TIME::$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+        run: echo "END_TIME=$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" | Out-File -Append -Encoding utf8 $env:GITHUB_ENV
         shell: pwsh
 
       - name: Calculate execution time
         run: |
-              $start = [datetime]"${{ steps.start_time.outputs.START_TIME }}"
-              $end = [datetime]"${{ steps.end_time.outputs.END_TIME }}"
+              $start = [datetime]$env:START_TIME
+              $end = [datetime]$env:END_TIME
               $duration = ($end - $start).TotalSeconds
               echo "Execution Time: $duration seconds"
               Invoke-RestMethod -Uri "http://localhost:9091/metrics/job/github_actions" -Method Post -Body "workflow_execution_time_seconds $duration"

@@ -42,7 +42,8 @@ jobs:
               $end = [datetime]$env:END_TIME
               $duration = ($end - $start).TotalSeconds
               echo "Execution Time: $duration seconds"
-              Invoke-RestMethod -Uri "http://localhost:9091/metrics/job/github_actions" -Method Post -Body "workflow_execution_time_seconds $duration"
+              Invoke-RestMethod -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method Post -Body "workflow_execution_time_seconds $duration"
+              #Invoke-RestMethod -Uri "http://localhost:9091/metrics/job/github_actions" -Method Post -Body "workflow_execution_time_seconds $duration"
               shell: pwsh
          
       - name: Notify Success

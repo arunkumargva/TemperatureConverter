@@ -2,7 +2,7 @@ name: Temperature Converter CI/CD
 
 on:
   push:
-    branches:  
+    branches:   
       - "Temperature-Converter"
   pull_request:
     branches:

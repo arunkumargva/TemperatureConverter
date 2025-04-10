@@ -14,7 +14,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
+      - name: Test connection to Prometheus
+        run: |
+          Test-NetConnection -ComputerName <192.168.1.224> -Port 9090 -InformationLevel "Detailed"
+        shell: pwsh
+
+      - name: Test connection to Pushgateway
+        run: |
+          Test-NetConnection -ComputerName <192.168.1.224> -Port 9091 -InformationLevel "Detailed"
+        shell: pwsh
       - name: Capture start time
         run: echo "START_TIME=$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" | Out-File -Append -Encoding utf8 $env:GITHUB_ENV
         shell: pwsh

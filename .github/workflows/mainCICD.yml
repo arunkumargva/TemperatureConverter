@@ -6,7 +6,7 @@ on:
       - "Temperature-Converter"
   pull_request:
     branches:
-      - "Temperature-Converter" 
+      - "Temperature-Converter"  
  
 jobs:
   build:

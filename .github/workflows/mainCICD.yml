@@ -17,7 +17,7 @@ jobs:
      
       - name: Test Connectivity
         run: |
-             Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics"
+             Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics" 
       - name: Test connection to Prometheus
         run: |
           $body = "# TYPE custom_metric_name gauge`ncustom_metric_name 123`n"

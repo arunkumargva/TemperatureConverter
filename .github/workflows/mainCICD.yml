@@ -22,13 +22,8 @@ jobs:
         run: |
           $body = "# TYPE custom_metric_name gauge`ncustom_metric_name 444`n"
           Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method POST -Body $body
-          #Test-NetConnection -ComputerName 192.168.1.224 -Port 9090 -InformationLevel "Detailed"
         shell: pwsh
 
-      - name: Test connection to Pushgateway
-        run: |
-          Test-NetConnection -ComputerName 192.168.1.224 -Port 9091 -InformationLevel "Detailed"
-        shell: pwsh
       - name: Capture start time
         run: echo "START_TIME=$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" | Out-File -Append -Encoding utf8 $env:GITHUB_ENV
         shell: pwsh
@@ -56,8 +51,9 @@ jobs:
               $end = [datetime]$env:END_TIME
               $duration = ($end - $start).TotalSeconds
               echo "Execution Time: $duration seconds"
+              $body = "# TYPE workflow_execution_time gauge`nworkflow_execution_time_seconds $duration`n"
               #Invoke-RestMethod -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method Post -Body "workflow_execution_time_seconds $duration"
-              $body = "# TYPE custom_metric_name gauge`ncustom_metric_name $duration`n"
+              #$body = "# TYPE custom_metric_name gauge`ncustom_metric_name $duration`n"
               Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method POST -Body $body
               shell: pwsh
          

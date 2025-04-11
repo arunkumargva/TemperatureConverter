@@ -16,7 +16,9 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test connection to Prometheus
         run: |
-          Test-NetConnection -ComputerName 192.168.1.224 -Port 9090 -InformationLevel "Detailed"
+          $body = "# TYPE custom_metric_name gauge`ncustom_metric_name 123`n"
+          Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method POST -Body $body
+          #Test-NetConnection -ComputerName 192.168.1.224 -Port 9090 -InformationLevel "Detailed"
         shell: pwsh
 
       - name: Test connection to Pushgateway

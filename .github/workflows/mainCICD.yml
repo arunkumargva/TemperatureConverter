@@ -1,6 +1,6 @@
 name: Temperature Converter CI/CD 
 
-on:
+on: 
   push:
     branches:   
       - "Temperature-Converter"

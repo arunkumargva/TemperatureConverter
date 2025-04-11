@@ -46,6 +46,7 @@ jobs:
         shell: pwsh
 
       - name: Calculate execution time
+        shell: pwsh
         run: |
               $start = [datetime]$env:START_TIME
               $end = [datetime]$env:END_TIME
@@ -53,7 +54,7 @@ jobs:
               echo "Execution Time: $duration seconds"
               $body = "# TYPE workflow_execution_time gauge`nworkflow_execution_time_seconds $duration`n"
               Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method POST -Body $body
-              shell: pwsh
+              
          
       - name: Notify Success
         if: success()

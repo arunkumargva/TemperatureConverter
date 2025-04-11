@@ -56,8 +56,9 @@ jobs:
               $end = [datetime]$env:END_TIME
               $duration = ($end - $start).TotalSeconds
               echo "Execution Time: $duration seconds"
-              Invoke-RestMethod -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method Post -Body "workflow_execution_time_seconds $duration"
-            
+              #Invoke-RestMethod -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method Post -Body "workflow_execution_time_seconds $duration"
+              $body = "# TYPE custom_metric_name gauge`ncustom_metric_name $duration`n"
+              Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method POST -Body $body
               shell: pwsh
          
       - name: Notify Success

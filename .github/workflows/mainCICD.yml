@@ -52,7 +52,7 @@ jobs:
               $end = [datetime]$env:END_TIME
               $duration = ($end - $start).TotalSeconds
               echo "Execution Time: $duration seconds"
-              $body = "# TYPE workflow_execution_time_seconds gauge`nworkflow_execution_time_seconds{instance="self-hosted,windows",job=""github_actions""} $duration`n"
+              $body = "# TYPE workflow_execution_time_seconds gauge`nworkflow_execution_time_seconds{instance="self-hosted-windows",job=""github_actions""} $duration`n"
               Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method POST -Body $body
              
              # $body = "# TYPE workflow_execution_time gauge`nworkflow_execution_time_seconds $duration`n"

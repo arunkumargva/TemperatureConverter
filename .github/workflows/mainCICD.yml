@@ -137,7 +137,7 @@ jobs:
             Write-Host "Windows Exporter service is not installed or not running. Proceeding with installation."
 
       - name: Install Windows Exporter
-        uses: powershell/PowerShell@v2
+        uses: powershell/PowerShell@v3
         with:
          command: |
             $downloadUrl = "https://github.com/prometheus-community/windows_exporter/releases/download/v2.3.0/windows_exporter-v2.3.0.zip"

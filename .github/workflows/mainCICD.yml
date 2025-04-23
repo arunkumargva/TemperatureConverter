@@ -17,8 +17,8 @@ jobs:
       
       - name: Install Windows Exporter test
         run: |
-             Invoke-WebRequest -Uri "https://github.com/prometheus-community/windows_exporter/releases/tag/v0.30.6/windows_exporter-0.30.6.zip" -OutFile "windows_exporter.zip"
-             Start-Process -FilePath msiexec.exe -ArgumentList '/i windows_exporter.msi /quiet /norestart' -Wait
+           #  Invoke-WebRequest -Uri "https://github.com/prometheus-community/windows_exporter/releases/tag/v0.30.6/windows_exporter-0.30.6.zip" -OutFile "windows_exporter.zip"
+            # Start-Process -FilePath msiexec.exe -ArgumentList '/i windows_exporter.msi /quiet /norestart' -Wait
              
       - name: Test Connectivity
         run: |
@@ -167,7 +167,7 @@ jobs:
           #C:\windows_exporter\windows_exporter.exe install
           #Start-Service windows_exporter
           #Expand-Archive -Path "windows_exporter.zip" -DestinationPath "C:\WindowsExporter"
-
+          Expand-Archive -Path "C:\actions-runner\_work\TemperatureConverter\TemperatureConverter\windows_exporter.zip" -DestinationPath "C:\windows_exporter"
       shell: powershell
 
     - uses: actions/checkout@v2

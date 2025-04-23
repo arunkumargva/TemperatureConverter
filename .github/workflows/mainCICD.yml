@@ -125,7 +125,7 @@ jobs:
       - name: Check if Windows Exporter is installed
         uses: powershell/PowerShell@v2
         with:
-        command: |
+         command: |
             if (Get-Service windows_exporter -ErrorAction SilentlyContinue) {
               # Service exists, check its status
               if ((Get-Service windows_exporter).Status -eq "Running") {

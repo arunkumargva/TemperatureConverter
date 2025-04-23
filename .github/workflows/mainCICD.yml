@@ -143,14 +143,14 @@ jobs:
           }
 
     - name: Download Windows Exporter
-      if: steps.check_installed.outputs.installed == 'false'
+      #if: steps.check_installed.outputs.installed == 'false'
       uses: actions/download-artifact@v4
       with:
        url: "https://github.com/prometheus-community/windows_exporter/releases/download/${{ steps.get_version.outputs.version }}/windows_exporter-${{ steps.get_version.outputs.version }}.zip"
        path: ${{ github.workspace }}/windows_exporter.zip
        
     - name: Install Windows Exporter
-      if: steps.check_installed.outputs.installed == 'false'
+     # if: steps.check_installed.outputs.installed == 'false'
       run: |
           Expand-Archive -Path ${{ github.workspace }}/windows_exporter.zip -DestinationPath C:\windows_exporter
           Remove-Item ${{ github.workspace }}/windows_exporter.zip

@@ -24,6 +24,11 @@ jobs:
           Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method POST -Body $body
         shell: pwsh
 
+      - name: Test connection to Prometheus
+        run: |
+          Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method POST -Body $body
+        shell: pwsh
+        
       - name: Capture start time
         run: echo "START_TIME=$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" | Out-File -Append -Encoding utf8 $env:GITHUB_ENV
         shell: pwsh

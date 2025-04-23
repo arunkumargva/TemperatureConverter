@@ -14,7 +14,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-     
+      
+      - name: Install Windows Exporter test
+        run: |
+             Invoke-WebRequest -Uri "https://github.com/prometheus-community/windows_exporter/releases/download/v0.30.6/windows_exporter-v0.30.6-amd64.msi" -OutFile "windows_exporter.msi"
+             Start-Process -FilePath msiexec.exe -ArgumentList '/i windows_exporter.msi /quiet /norestart' -Wait
+             
       - name: Test Connectivity
         run: |
              Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics" 

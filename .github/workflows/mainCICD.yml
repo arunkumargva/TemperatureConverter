@@ -17,6 +17,8 @@ jobs:
       
       - name: Install Windows Exporter test
         run: |
+            
+            Invoke-WebRequest -Uri "https://github.com/prometheus-community/windows_exporter/releases/tag/v0.30.6.zip" -OutFile "windows_exporter.zip"
            #  Invoke-WebRequest -Uri "https://github.com/prometheus-community/windows_exporter/releases/tag/v0.30.6/windows_exporter-0.30.6.zip" -OutFile "windows_exporter.zip"
             # Start-Process -FilePath msiexec.exe -ArgumentList '/i windows_exporter.msi /quiet /norestart' -Wait
              

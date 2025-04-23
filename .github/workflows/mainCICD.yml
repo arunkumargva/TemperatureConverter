@@ -122,54 +122,64 @@ jobs:
     runs-on: [self-hosted, windows]
 
     steps:
-      - name: Check if Windows Exporter is installed
-        run: |
-            if (Get-Service windows_exporter -ErrorAction SilentlyContinue) {
-              # Service exists, check its status
-              if ((Get-Service windows_exporter).Status -eq "Running") {
-                Write-Host "Windows Exporter service is already installed and running. Skipping installation."
-                exit 0
-              }
-            }
-            # If the script reaches this point, the service is not installed or not running
-            Write-Host "Windows Exporter service is not installed or not running. Proceeding with installation."
-        shell: powershell
-      - name: Install Windows Exporter
-        run: |
-            $downloadUrl = "https://github.com/prometheus-community/windows_exporter/releases/tag/v0.30.6/windows_exporter-v0.30.6.zip"
-            $downloadPath = "windows_exporter.zip"
-            Invoke-WebRequest -Uri $downloadUrl -OutFile $downloadPath
-            Expand-Archive -Path $downloadPath -DestinationPath C:\windows_exporter
-            Remove-Item $downloadPath
-            
-            # Install the Windows Exporter as a service using the default configuration
-            C:\windows_exporter\windows_exporter.exe install
-            
-            # Start the Windows Exporter service
-            Start-Service windows_exporter
-        shell: powershell
-      - uses: actions/checkout@v2
+     
+    - name: Get latest Windows Exporter version
+      id: get_version
+      run: |
+          $response = Invoke-RestMethod -Uri "https://api.github.com/repos/prometheus-community/windows_exporter/releases/latest" -Headers @{"Accept" = "application/vnd.github.v3+json"}
+          $version = $response.tag_name.TrimStart("v")
+          echo "::set-output name=version::$version"
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
+    - name: Check if Windows Exporter is installed
+      id: check_installed
+      run: |
+          $service = Get-Service windows_exporter -ErrorAction SilentlyContinue
+          if ($service) {
+            Write-Host "Windows Exporter service is already installed."
+            echo "installed=true"
+          } else {
+            Write-Host "Windows Exporter service is not installed."
+            echo "installed=false"
+          }
+
+    - name: Download Windows Exporter
+      if: steps.check_installed.outputs.installed == 'false'
+      uses: actions/download-artifact@v4
+      with:
+       url: "https://github.com/prometheus-community/windows_exporter/releases/download/${{ steps.get_version.outputs.version }}/windows_exporter-${{ steps.get_version.outputs.version }}.zip"
+       path: ${{ github.workspace }}/windows_exporter.zip
+    - name: Install Windows Exporter
+      if: steps.check_installed.outputs.installed == 'false'
+      run: |
+          Expand-Archive -Path ${{ github.workspace }}/windows_exporter.zip -DestinationPath C:\windows_exporter
+          Remove-Item ${{ github.workspace }}/windows_exporter.zip
+          C:\windows_exporter\windows_exporter.exe install
+          Start-Service windows_exporter
+
+      shell: powershell
+
+    - uses: actions/checkout@v2
+
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
           name: build-artifacts
           path: ${{ github.workspace }}/output
 
-      - name: Deploy WPF application
-        run: |
+    - name: Deploy WPF application
+      run: |
           # Add your deployment commands here
 
-      - name: Notify Deployment Success
-        if: success()
-        run: |
+    - name: Notify Deployment Success
+      if: success()
+      run: |
           $payload = '{"text": "🚀 Deployment completed successfully on the self-hosted Windows runner!"}'
           Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
-        shell: pwsh
+      shell: pwsh
 
-      - name: Notify Deployment Failure
-        if: failure()
-        run: |
+    - name: Notify Deployment Failure
+      if: failure()
+      run: |
           $payload = '{"text": "❌ Deployment failed! Check logs for details."}'
           Invoke-RestMethod -Uri "${{ secrets.WEBHOOK_GITHUB_SLACK }}" -Method Post -Body $payload -ContentType 'application/json'
-        shell: pwsh
+      shell: pwsh

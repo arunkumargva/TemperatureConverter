@@ -4,7 +4,7 @@ on:
   push:
     branches:   
       - "Temperature-Converter"
-  pull_request:
+  pull_request: 
     branches:
       - "Temperature-Converter"  
    

@@ -136,7 +136,7 @@ jobs:
         shell: powershell
       - name: Install Windows Exporter
         run: |
-            $downloadUrl = "https://github.com/prometheus-community/windows_exporter/releases/download/v2.3.0/windows_exporter-v2.3.0.zip"
+            $downloadUrl = "https://github.com/prometheus-community/windows_exporter/releases/tag/v0.30.6/windows_exporter-v0.30.6.zip"
             $downloadPath = "windows_exporter.zip"
             Invoke-WebRequest -Uri $downloadUrl -OutFile $downloadPath
             Expand-Archive -Path $downloadPath -DestinationPath C:\windows_exporter

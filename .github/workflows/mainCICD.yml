@@ -144,7 +144,7 @@ jobs:
 
     - name: Download Windows Exporter
       #if: steps.check_installed.outputs.installed == 'false'
-      uses: actions/download-artifact@v4
+      uses: actions/download-file@v3
       with:
        url: "https://github.com/prometheus-community/windows_exporter/releases/download/${{ steps.get_version.outputs.version }}/windows_exporter-${{ steps.get_version.outputs.version }}.zip"
        path: ${{ github.workspace }}/windows_exporter.zip

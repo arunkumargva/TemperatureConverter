@@ -123,9 +123,7 @@ jobs:
 
     steps:
       - name: Check if Windows Exporter is installed
-        uses: powershell/PowerShell@v3
-        with:
-         command: |
+        run: |
             if (Get-Service windows_exporter -ErrorAction SilentlyContinue) {
               # Service exists, check its status
               if ((Get-Service windows_exporter).Status -eq "Running") {
@@ -135,11 +133,9 @@ jobs:
             }
             # If the script reaches this point, the service is not installed or not running
             Write-Host "Windows Exporter service is not installed or not running. Proceeding with installation."
-
+        shell: powershell
       - name: Install Windows Exporter
-        uses: powershell/PowerShell@v3
-        with:
-         command: |
+        run: |
             $downloadUrl = "https://github.com/prometheus-community/windows_exporter/releases/download/v2.3.0/windows_exporter-v2.3.0.zip"
             $downloadPath = "windows_exporter.zip"
             Invoke-WebRequest -Uri $downloadUrl -OutFile $downloadPath
@@ -151,7 +147,7 @@ jobs:
             
             # Start the Windows Exporter service
             Start-Service windows_exporter
-
+        shell: powershell
       - uses: actions/checkout@v2
 
       - name: Download build artifacts

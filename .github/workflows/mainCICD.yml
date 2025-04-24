@@ -159,44 +159,6 @@ jobs:
     runs-on: [self-hosted, windows]
 
     steps:
-     
-    - name: Get latest Windows Exporter version
-      id: get_version
-      run: |
-          $response = Invoke-RestMethod -Uri "https://api.github.com/repos/prometheus-community/windows_exporter/releases/latest" -Headers @{"Accept" = "application/vnd.github.v3+json"}
-          $version = $response.tag_name.TrimStart("v")
-          echo "::set-output name=version::$version"
-
-    - name: Check if Windows Exporter is installed
-      id: check_installed
-      run: |
-          $service = Get-Service windows_exporter -ErrorAction SilentlyContinue
-          if ($service) {
-            Write-Host "Windows Exporter service is already installed."
-            echo "installed=true"
-          } else {
-            Write-Host "Windows Exporter service is not installed."
-            echo "installed=false"
-          }
-
-    - name: Download Windows Exporter
-      run: |
-          #Invoke-WebRequest -Uri "https://github.com/prometheus-community/windows_exporter/releases/download/${{ steps.get_version.outputs.version }}/windows_exporter-${{ steps.get_version.outputs.version }}.zip" -OutFile ${{ github.workspace }}/windows_exporter.zip
-         # Invoke-WebRequest -Uri "https://github.com/prometheus-community/windows_exporter/releases/tag/v0.30.6/windows_exporter-0.30.6.zip" -OutFile "windows_exporter.zip"
-      shell: powershell
-
-    
-    - name: Install Windows Exporter
-     # if: steps.check_installed.outputs.installed == 'false'
-      run: |
-          #Expand-Archive -Path ${{ github.workspace }}/windows_exporter.zip -DestinationPath C:\windows_exporter
-          #Remove-Item ${{ github.workspace }}/windows_exporter.zip
-          #C:\windows_exporter\windows_exporter.exe install
-          #Start-Service windows_exporter
-          #Expand-Archive -Path "windows_exporter.zip" -DestinationPath "C:\WindowsExporter"
-          Expand-Archive -Path "C:\actions-runner\_work\TemperatureConverter\TemperatureConverter\windows_exporter.zip" -DestinationPath "C:\windows_exporter"
-      shell: powershell
-
     - uses: actions/checkout@v2
 
     - name: Download build artifacts

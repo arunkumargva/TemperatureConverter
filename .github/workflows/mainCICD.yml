@@ -17,16 +17,25 @@ jobs:
       - name: Check if Windows Exporter is Running
         shell: powershell
         run: |
-            $service = Get-Service -Name "windows_exporter" -ErrorAction SilentlyContinue
-            if ($service -eq $null) {
+             $service = Get-Service -Name "windows_exporter" -ErrorAction SilentlyContinue
+             if ($service -eq $null) {
              Write-Host "Windows Exporter is not installed. Proceeding with installation..."
-            # Add commands to download and install here
+      
+             # Step 1: Download Windows Exporter EXE
              Invoke-WebRequest -Uri "https://github.com/prometheus-community/windows_exporter/releases/download/v0.30.6/windows_exporter-0.30.6-amd64.exe" -OutFile "C:\actions-runner\_work\windows_exporter.exe"
-             Start-Process -FilePath "C:\actions-runner\_work\windows_exporter.exe" -NoNewWindow -Wait
-            } 
-            else {
+      
+             # Step 2: Register Exporter as a Service
+             if (-Not (Test-Path "C:\actions-runner\_work\windows_exporter.exe")) {
+             Write-Host "Failed to download Windows Exporter EXE. Aborting!"
+             exit 1
+             }
+
+             New-Service -Name "windows_exporter" -BinaryPathName "C:\actions-runner\_work\windows_exporter.exe" -StartupType Automatic
+             Start-Service -Name "windows_exporter"
+             Write-Host "Windows Exporter has been installed and started successfully."
+             } else {
              Write-Host "Windows Exporter is already installed and running as a service."
-            }
+             }
             
       - name: Install Windows Exporter test
         run: |

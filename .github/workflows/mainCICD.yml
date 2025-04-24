@@ -18,9 +18,17 @@ jobs:
       - name: Install Windows Exporter test
         run: |
             
-            Invoke-WebRequest -Uri "https://github.com/prometheus-community/windows_exporter/archive/refs/tags/v0.30.6.zip" -OutFile "windows_exporter.zip"
+            Invoke-WebRequest -Uri "https://github.com/prometheus-community/windows_exporter/archive/refs/tags/v0.30.6.zip" -OutFile "C:\actions-runner\_work\windows_exporter.zip"
             # Start-Process -FilePath msiexec.exe -ArgumentList '/i windows_exporter.msi /quiet /norestart' -Wait
-             
+      - name: Extract Windows Exporter
+        shell: powershell
+        run: |
+          Expand-Archive -Path "C:\actions-runner\_work\windows_exporter.zip" -DestinationPath "C:\actions-runner\_work\windows_exporter"
+          
+      - name: Install Windows Exporter
+        shell: powershell
+        run: |
+          Start-Process -FilePath "C:\windows_exporter\windows_exporter.exe" -ArgumentList "--config.file=C:\actions-runner\_work\windows_exporter\config.yml" -NoNewWindow -Wait    
       - name: Test Connectivity
         run: |
              Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics" 

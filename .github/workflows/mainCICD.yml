@@ -37,15 +37,6 @@ jobs:
              Write-Host "Windows Exporter is already installed and running as a service."
              }
             
-      - name: Install Windows Exporter test
-        run: |
-            # Invoke-WebRequest -Uri "https://github.com/prometheus-community/windows_exporter/releases/download/v0.30.6/windows_exporter-0.30.6-amd64.exe" -OutFile "C:\actions-runner\_work\windows_exporter.exe"
-
-      - name: Install Windows Exporter
-        shell: powershell
-        run: |
-          #Start-Process -FilePath "C:\actions-runner\_work\windows_exporter.exe" -NoNewWindow -Wait
-          
       - name: Test Connectivity
         run: |
              Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics" 
@@ -56,11 +47,6 @@ jobs:
           Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method POST -Body $body
         shell: pwsh
 
-      - name: Test connection to Prometheus
-        run: |
-          Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method POST -Body $body
-        shell: pwsh
-        
       - name: Capture start time
         run: echo "START_TIME=$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" | Out-File -Append -Encoding utf8 $env:GITHUB_ENV
         shell: pwsh
@@ -91,10 +77,6 @@ jobs:
               echo "Execution Time: $duration seconds"
               $body = "# TYPE workflow_execution_time_seconds gauge`nworkflow_execution_time_seconds{instance=""self-hosted-windows"",job=""github_actions""} $duration`n"
               Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method POST -Body $body
-             
-             # $body = "# TYPE workflow_execution_time gauge`nworkflow_execution_time_seconds $duration`n"
-             # Invoke-WebRequest -Uri "http://192.168.1.224:9091/metrics/job/github_actions" -Method POST -Body $body
-              
          
       - name: Notify Success
         if: success()
